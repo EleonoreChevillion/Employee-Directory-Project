@@ -64,8 +64,12 @@ $("#submit").on("click", function(event) {
 
 //need to add click listener
 database.ref().on("child_added", function(snapshot) {
+  
   var newEmployee = snapshot.val();
-console.log(snapshot.val());
+  var randomFormat = "MM/DD/YYYY";
+  var convertedDate = moment(newEmployee.hiredate, randomFormat);
+  
+
   $('#displayed-name').text(
     newEmployee.fname
   );
@@ -79,11 +83,13 @@ console.log(snapshot.val());
     newEmployee.email
   );
   $('#displayed-hire-date').text(
-    newEmployee.hiredate
-    
+    convertedDate
   );
   $('#displayed-salary').text(
     newEmployee.salary
+  );
+  $('#displayed-months-worked').text(
+    convertedDate
   );
 
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
