@@ -72,12 +72,15 @@ $("#submit").on("click", function(event) {
 database.ref().on("child_append", function(snapshot) {
   var newEmployee = snapshot.val();
 
-  $("#displayed-name").text(newEmployee.val().fname);
-  $("#displayed-title").text(newEmployee.val().title);
-  $("#displayed-phone").text(newEmployee.val().phone);
-  $("#displayed-email").text(newEmployee.val().email);
-  $("#displayed-hire-date").text(newEmployee.val().hiredate);
-  $("#displayed-salary").text(newEmployee.val().salary);
+  $("#displayed-name").text(newEmployee.fname);
+  $("#displayed-title").text(newEmployee.title);
+  $("#displayed-phone").text(newEmployee.phone);
+  $("#displayed-email").text(newEmployee.email);
+  $("#displayed-hire-date").text(newEmployee.hiredate);
+  $("#displayed-salary").text(newEmployee.salary);
+
+  var hireDateFormat = "MM/DD/YYYY";
+  var convertedDate = moment(hiredate, hireDateFormat);
 
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
 });
