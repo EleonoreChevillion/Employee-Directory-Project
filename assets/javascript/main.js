@@ -59,5 +59,9 @@ $("#submit").on("click", function(event) {
   // Change what is saved in firebase
 });
 database.ref().on("child_append", function(snapshot) {
-  // If Firebase has a highPrice and highBidder stored, update our client-side variables
+  $("#name-display").text(snapshot.val().name);
+  $("#email-display").text(snapshot.val().email);
+  $("#age-display").text(snapshot.val().age);
+  $("#comment-display").text(snapshot.val().comment);
 });
+// If Firebase has a highPrice and highBidder stored, update our client-side variables
