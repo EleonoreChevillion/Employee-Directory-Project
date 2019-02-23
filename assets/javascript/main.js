@@ -24,8 +24,6 @@ $("#submit").on("click", function(event) {
   // Don't refresh the page!
   event.preventDefault();
 
-  // YOUR TASK!!!
-
   fname = $("#fname-input")
     .val()
     .trim();
@@ -64,5 +62,16 @@ $("#submit").on("click", function(event) {
   // Change what is saved in firebase
 });
 database.ref().on("child_append", function(snapshot) {
+
+  $('#displayed-name').text(
+    snapshot.val().name
+  );
+
+  $('#displayed-title').text(
+    snapshot.val().title
+  );
+  $('#displayed-phone').text(
+    snapshot.val().phone
+  );
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
 });
