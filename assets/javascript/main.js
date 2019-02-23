@@ -64,25 +64,28 @@ $("#submit").on("click", function(event) {
 
 //need to add click listener
 database.ref().on("child_append", function(snapshot) {
+  var newEmployee = snapshot.val();
 
   $('#displayed-name').text(
-    snapshot.val().name
+    newEmployee.val().name
   );
   $('#displayed-title').text(
-    snapshot.val().title
+    newEmployee.val().title
   );
   $('#displayed-phone').text(
-    snapshot.val().phone
+    newEmployee.val().phone
   );
   $('#displayed-email').text(
-    snapshot.val().phone
+    newEmployee.val().email
   );
   $('#displayed-hire-date').text(
-    snapshot.val().phone
+    newEmployee.val().hiredate
+    
   );
   $('#displayed-salary').text(
-    snapshot.val().phone
+    newEmployee.val().salary
   );
+
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
 });
 // If Firebase has a highPrice and highBidder stored, update our client-side variables
