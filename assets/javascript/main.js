@@ -75,3 +75,4 @@ database.ref().on("child_append", function(snapshot) {
   );
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
 });
+// If Firebase has a highPrice and highBidder stored, update our client-side variables
