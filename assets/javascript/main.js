@@ -63,27 +63,27 @@ $("#submit").on("click", function(event) {
 });
 
 //need to add click listener
-database.ref().on("child_append", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
   var newEmployee = snapshot.val();
-
+console.log(snapshot.val());
   $('#displayed-name').text(
-    newEmployee.val().name
+    newEmployee.fname
   );
   $('#displayed-title').text(
-    newEmployee.val().title
+    newEmployee.title
   );
   $('#displayed-phone').text(
-    newEmployee.val().phone
+    newEmployee.phone
   );
   $('#displayed-email').text(
-    newEmployee.val().email
+    newEmployee.email
   );
   $('#displayed-hire-date').text(
-    newEmployee.val().hiredate
+    newEmployee.hiredate
     
   );
   $('#displayed-salary').text(
-    newEmployee.val().salary
+    newEmployee.salary
   );
 
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
