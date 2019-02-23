@@ -26,7 +26,13 @@ $("#submit").on("click", function(event) {
 
   // YOUR TASK!!!
 
-  name = $("#name-input")
+  fname = $("#fname-input")
+    .val()
+    .trim();
+  lname = $("#lname-input")
+    .val()
+    .trim();
+  homeaddress = $("#address-input")
     .val()
     .trim();
   title = $("#title-input")
@@ -38,7 +44,6 @@ $("#submit").on("click", function(event) {
   email = $("#email-address-input")
     .val()
     .trim();
-
   hiredate = $("#hire-date-input")
     .val()
     .trim();
