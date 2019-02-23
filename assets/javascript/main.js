@@ -63,28 +63,21 @@ $("#submit").on("click", function(event) {
 });
 
 //need to add click listener
+// database.ref().on("value", function(snapshot) {
+//         $("#name-display").text(snapshot.val().name);
+//         $("#email-display").text(snapshot.val().email);
+//         $("#age-display").text(snapshot.val().age);
+//         $("#comment-display").text(snapshot.val().comment);
+//       });
 database.ref().on("child_append", function(snapshot) {
   var newEmployee = snapshot.val();
 
-  $('#displayed-name').text(
-    newEmployee.val().name
-  );
-  $('#displayed-title').text(
-    newEmployee.val().title
-  );
-  $('#displayed-phone').text(
-    newEmployee.val().phone
-  );
-  $('#displayed-email').text(
-    newEmployee.val().email
-  );
-  $('#displayed-hire-date').text(
-    newEmployee.val().hiredate
-    
-  );
-  $('#displayed-salary').text(
-    newEmployee.val().salary
-  );
+  $("#displayed-name").text(newEmployee.val().fname);
+  $("#displayed-title").text(newEmployee.val().title);
+  $("#displayed-phone").text(newEmployee.val().phone);
+  $("#displayed-email").text(newEmployee.val().email);
+  $("#displayed-hire-date").text(newEmployee.val().hiredate);
+  $("#displayed-salary").text(newEmployee.val().salary);
 
   // If Firebase has a highPrice and highBidder stored, update our client-side variables
 });
